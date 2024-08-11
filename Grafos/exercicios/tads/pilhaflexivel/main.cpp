@@ -21,6 +21,19 @@ class PilhaFlexivel {
         }
     }
 
+    bool buscar(T elemento){
+        No* atual = cabeca;
+        while(atual != nullptr){
+            if(atual->elemento == elemento){
+                std::cout << "Elemento " << atual->elemento << " encontrado" << std::endl;
+                return true;
+            }
+            atual = atual->prox;
+        }
+        std::cout << "Elemento " << elemento << " nao encontrado" << std::endl;
+        return false;
+    }
+
     void mostrar(){
         No* atual = cabeca;
         std::cout << "Pilha: ";
@@ -66,10 +79,14 @@ int main(){
 
     pilha.mostrar();
 
+    bool busca = pilha.buscar(5);
+
     pilha.remove();
     pilha.remove();
 
     pilha.mostrar();
+
+    busca = pilha.buscar(5);
 
     return 0;
 }

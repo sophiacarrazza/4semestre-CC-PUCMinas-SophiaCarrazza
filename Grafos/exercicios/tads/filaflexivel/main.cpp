@@ -21,6 +21,19 @@ class FilaFlexivel {
         }
     }
 
+    bool buscar(T elemento){
+        No* atual = cabeca;
+        while(atual != nullptr){
+            if(atual->elemento == elemento){
+                std::cout << "Elemento " << atual->elemento << " encontrado" << std::endl;
+                return true;
+            }
+            atual = atual->prox;
+        }
+        std::cout << "Elemento " << elemento << " nao encontrado" << std::endl;
+        return false;
+    }
+
     void mostrar(){
         No* atual = cabeca;
         std::cout << "Fila: ";
@@ -75,10 +88,14 @@ int main(){
 
     fila.mostrar();
 
+    bool busca = fila.buscar(1);
+
     fila.remove();
     fila.remove();
 
     fila.mostrar();
+
+    busca = fila.buscar(1);
 
     return 0;
 }
