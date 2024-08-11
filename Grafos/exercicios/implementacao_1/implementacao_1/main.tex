@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}  
+
+     
+\sloppy
+
+\title{Implementação 1 - TAD's}
+
+\author{Laura Costa\inst{1}, Lívia Xavier\inst{1}, Luca Gonzaga\inst{1}, Sophia Carrazza \inst{1} 
+}
+
+
+\address{Instituto de Ciências Exatas e Informática -- Pontifícia Universidade Católica de Minas Gerais
+  %Caixa Postal 15.064 -- 91.501-970 -- Porto Alegre -- RS -- Brazil
+%%%\nextinstitute
+  %Departamento de Sistemas e Computação\\
+  %Universidade Regional de Blumenal (FURB) -- Blumenau, SC -- Brazil
+  \email{}
+}
+
+\begin{document} 
+
+\maketitle
+\section{Informações Gerais}
+
+O presente trabalho busca descrever a implementação de tipos abstratos de dados tanto flexíveis quanto estáticos utilizando a linguagem C++. O grupo optou por empregar templates, que permitem a criação de estruturas de dados genéricas e adaptáveis à diferentes tipos de dados. No entanto, para a matriz, foi feita uma implementação específica para armazenar apenas inteiros. A escolha dos templates visa proporcionar uma abordagem eficiente e reutilizável,
+
+\section{Estruturas estáticas}
+\subsection{Pilha}
+Para a implementação da pilha foi utilizada a abordagem de arrays, na qual o usuário define a capacidade máxima da estrutura previamente, que será o tamanho do array. Segue abaixo a explicação de cada método implementado.
+
+\textbf{Inserir:} Adiciona um novo elemento ao topo da pilha. Ele primeiro verifica, com um \texttt{if}, se ainda há espaço disponível na pilha. Se houver espaço, o elemento é inserido na posição correspondente e a quantidade de elementos é incrementada. Se a pilha estiver cheia, o método exibe uma mensagem informando que a pilha está cheia.
+
+\textbf{Remover:} O método \textit{remover} é usado para retirar o elemento do topo da pilha. Ele começa verificando, com um \texttt{if}, se há elementos na pilha. Se houver, a quantidade de elementos é decrementada e o elemento do topo é retornado. Caso a pilha esteja vazia, uma exceção é lançada para sinalizar que a remoção não pode ser realizada.
+
+\textbf{Busca:} A busca é feita utilizando um laço \texttt{for} que percorre os elementos da pilha do início até a posição \textit{quantidade atual}. A cada iteração, o método verifica, com um \texttt{if}, se o elemento atual é igual ao elemento procurado. Se o elemento for encontrado, a variável \textit{sucesso} é definida como \texttt{true} e o laço é interrompido. Caso contrário, o laço continua até que todos os elementos tenham sido verificados. O método retorna \texttt{true} se o elemento foi encontrado, e \texttt{false} caso contrário.
+
+\textbf{Mostrar:} O método \textit{mostrar} exibe todos os elementos da pilha do topo para a base. Isso é feito utilizando um laço \texttt{for} que começa no topo da pilha e vai até a base. A cada iteração, o elemento atual é exibido.
+
+\textbf{Main:} inicializa uma pilha de tipo \texttt{float} e demonstra o uso dos métodos implementados. Inicialmente, são inseridos 10 elementos na pilha, com valores incrementados por 1. Após as inserções, dois elementos são removidos do topo da pilha. O método \texttt{mostrar} é então chamado para exibir a pilha atualizada. Por fim, o método \texttt{busca\_elemento} é utilizado para verificar a presença de dois valores específicos na pilha, e o resultado da busca é exibido. Este fluxo demonstra como manipular e operar com uma pilha, incluindo inserção, remoção, exibição e busca de elementos.
+
+\subsection{Fila}
+Para a implementação da fila foi utilizada a abordagem de arrays, na qual o usuário define a capacidade máxima da estrutura previamente, que será o tamanho do array. Segue abaixo a explicação de cada método implementado.
+
+\textbf{Inserir:} Adiciona um novo elemento ao fim da fila. Ele primeiro verifica, com um \texttt{if}, se ainda há espaço disponível na fila. Se houver espaço, o elemento é inserido na última posição e a quantidade de elementos é incrementada. Se a fila estiver cheia, o método exibe uma mensagem informando que a fila está cheia.
+
+\textbf{Remover:} O método \textit{remover} é usado para retirar o elemento do início da fila. Primeiramente, é utilizado um \texttt{if} para verificar se há elementos na fila. Se houver, o primeiro elemento é salvo em uma variável auxiliar (\textit{aux}), a função \textit{shift\_left} é chamada para mover todos os elementos restantes uma posição para a esquerda, e a quantidade de elementos é decrementada. O método então retorna o elemento removido. Se a fila estiver vazia, uma exceção é lançada.
+
+\textbf{Shift Left:} Este método é usado para deslocar todos os elementos da fila uma posição para a esquerda, removendo efetivamente o primeiro elemento. Ele utiliza um laço \texttt{for} para percorrer os elementos, começando do segundo elemento (índice 1) até o penúltimo, movendo cada elemento para a posição anterior (\texttt{fila[i] = fila[i + 1]}).
+
+\textbf{Busca:} A busca é feita utilizando um laço \texttt{for} que percorre os elementos da fila do início até a posição \textit{quantidade atual}. A cada iteração, o método verifica, com um \texttt{if}, se o elemento atual é igual ao elemento procurado. Se o elemento for encontrado, a variável \textit{sucesso} é definida como \texttt{true} e o laço é interrompido. Caso contrário, o laço continua até que todos os elementos tenham sido verificados. O método retorna \texttt{true} se o elemento foi encontrado, e \texttt{false} caso contrário.
+
+\textbf{Mostrar:} O método \textit{mostrar} exibe todos os elementos da fila. Isso é feito utilizando um laço \texttt{for} que começa no início da fila e vai até o fim. A cada iteração, o elemento atual é exibido.
+
+\textbf{Main:} O método \texttt{main} inicializa uma fila e demonstra o uso dos métodos implementados. Primeiramente, são inseridos 10 elementos na fila. Em seguida, dois elementos são removidos da fila. O método \texttt{mostrar} é chamado para exibir a fila atual após as inserções e remoções. Por fim, o método \texttt{busca\_elemento} é utilizado para verificar a presença de dois valores específicos na fila, e o resultado da busca é exibido.
+
+\subsection{Matriz de inteiros}
+
+ A matriz implementada é composta pela estrutura criada denominada Elemento, que possui um valor inteiro e um indicador booleano chamado "lapide", que serve para marcar se o elemento foi removido ou não. A matriz é inicializada a partir de um array de elementos, que é preenchido com valores aleatórios através da função rand. Além disso, o código permite a remoção de elementos da matriz, a busca de um valor específico e a exibição da matriz. Segue abaixo a explicação de cada método implementado.
+
+ A estrutura \texttt{Elemento} contém dois membros:
+\begin{itemize}
+    \item \texttt{elemento}: Um valor inteiro que representa o dado armazenado.
+    \item \texttt{lapide}: Um booleano que indica se o elemento foi removido (\texttt{true}) ou não (\texttt{false}).
+\end{itemize}
+
+\textbf{Inserir:} Este método transfere os elementos de um array (\texttt{elementos}) para uma matriz bidimensional (\texttt{matriz}). Um contador (\texttt{c}) é utilizado para iterar sobre o array. O laço \texttt{for} duplo percorre todas as posições da matriz, preenchendo-a com os elementos do array.
+
+\textbf{Mostra\_matriz:} Este método exibe o conteúdo da matriz. Ele percorre a matriz com dois laços \texttt{for} aninhados. Se o campo \texttt{lapide} do elemento for \texttt{false}, o valor do elemento é exibido. Caso contrário, é exibida a mensagem ``elemento removido''.
+
+\textbf{Mostra\_elementos:} Este método exibe todos os elementos do array através de Um laço \texttt{for} percorre o array e exibe cada valor.
+
+\textbf{Preenche\_elementos:} Inicializa o array \texttt{elementos} com valores inteiros aleatórios entre 0 e 99. A função \texttt{srand(0)} é utilizada para fixar a semente do gerador de números aleatórios, garantindo que os mesmos valores sejam gerados toda vez que o programa é executado. Cada posição do array é preenchida com um valor aleatório.
+
+\textbf{Remover:} Marca um elemento específico da matriz como removido,isso é feito de forma a alterar o  valor de \texttt{lapide} para \texttt{true}. O método verifica se os índices fornecidos para a linha e a coluna estão dentro dos limites da matriz. Se os índices forem válidos, o elemento correspondente é marcado como removido; caso contrário, uma mensagem de erro é exibida.
+
+\textbf{Busca:} Procura por um valor específico (\texttt{chave}) dentro da matriz. Utiliza dois laços \texttt{for} para percorrer toda a matriz. Se o valor for encontrado, a variável \texttt{sucesso} é definida como \texttt{true} e os laços são interrompidos para encerrar a busca. O método retorna \texttt{true} se o elemento foi encontrado e \texttt{false} caso contrário.
+\
+
+\textbf{Main:} executa a lógica do programa:
+\begin{enumerate}
+    \item Inicializa a matriz e o array de elementos.
+    \item Preenche o array com valores aleatórios usando \texttt{preenche\_elementos}.
+    \item Exibe os elementos do array usando \texttt{mostra\_elementos}.
+    \item Insere os elementos do array na matriz usando \texttt{inserir}.
+    \item Exibe a matriz usando \texttt{mostra\_matriz}.
+    \item Remove um elemento da matriz (na posição [3,3]) usando \texttt{remover}.
+    \item Exibe a matriz novamente para mostrar o efeito da remoção.
+    \item Realiza uma busca por um elemento específico (neste caso, 90) usando \texttt{busca\_elemento}.
+\end{enumerate}
+\section{Estuturas flexíveis}
+
+\subsection{Lista}
+Este código implementa uma lista flexível genérica utilizando \emph{templates} em C++, empregando estruturas encadeadas. A classe \texttt{ListaFlexivel} foi definida como uma classe \emph{template}, permitindo seu uso para armazenar qualquer tipo de dado, como \texttt{int}, \texttt{string}, entre outros objetos.
+
+A estrutura interna da lista é composta pela estrutura \texttt{No}, onde cada nó contém um elemento do tipo genérico \texttt{T} (\texttt{elemento}) e um ponteiro para o próximo nó na lista (\texttt{prox}). A lista em si é representada pelo ponteiro \texttt{cabeça}, que aponta para o primeiro nó da lista. Quando a lista é criada, o ponteiro \texttt{cabeça} é inicializado como \texttt{nullptr}, indicando que a lista está vazia. 
+
+O código possui um construtor e um destrutor, sendo que o destrutor percorre a lista a partir da cabeça, liberando a memória de cada nó por meio de um \texttt{while} até que todos os nós sejam removidos (quando o nó atual é \texttt{nullptr}).
+
+A classe oferece diversos métodos para manipulação da lista. O método \texttt{addInicio} permite adicionar um novo elemento no início da lista, atualizando o ponteiro da cabeça para apontar para o novo nó criado. O método \texttt{addFinal} adiciona um elemento no final da lista, percorrendo-a a partir da cabeça até encontrar o último nó, ao qual o novo nó será anexado.
+
+Há também o método \texttt{add}, que permite inserir um elemento em uma posição específica da lista. Se a posição especificada for zero, o elemento será adicionado no início da lista; caso contrário, o método percorre a lista até a posição desejada e insere o novo nó naquele ponto.
+
+O método \texttt{mostrar} exibe todos os elementos da lista, imprimindo-os em ordem. Já o método \texttt{buscar} encontra um elemento na lista, retornando \texttt{true} se encontrado e \texttt{false} se não, exibindo mensagens conforme o resultado.
+
+Para remoção, existem métodos para remover o primeiro elemento (\texttt{removeInicio}), o último elemento (\texttt{removeFinal}) e um elemento específico (\texttt{remover}). O método \texttt{removeInicio} move o ponteiro da cabeça para o próximo nó e deleta o nó anterior. O método \texttt{removeFinal} percorre a lista até o penúltimo nó e o desconecta do último nó, que é então deletado fisicamente. O método \texttt{remover} busca um elemento específico na lista e, se encontrado, remove-o, ajustando os ponteiros dos nós adjacentes.
+
+Na \texttt{main()}, a classe é instanciada com o tipo \texttt{int}, demonstrando os métodos criados no código. A busca é feita após a primeira exibição, e a lista é exibida antes e depois das operações de remoção para ilustrar o funcionamento do código.
+
+
+\subsection{Pilha}
+
+O código da classe \texttt{PilhaFlexivel} é derivado da estrutura básica de lista encadeada e implementa uma pilha, que segue a ordem LIFO (Last In, First Out). Dessa forma, o método \texttt{add} insere novos elementos no início da pilha, tornando o novo nó a cabeça da lista. 
+
+O método \texttt{remove} também atua no início da pilha, removendo o elemento do topo e ajustando o ponteiro da cabeça para o próximo nó. A classe também contém um construtor e um destrutor, assim como a \texttt{ListaFlexivel}, além de possuir os métodos de \texttt{buscar} e \texttt{mostrar}, que percorrem os elementos/ponteiros da lista até chegar à nullptr para encontrar um elemento ou mostrar todos eles.
+
+A \texttt{main()} demonstra os métodos criados no código, a pilha é exibida antes e depois das operações de remoção para ilustrar todo o funcionamento e a busca do elemento 5 é feita antes e depois de sua remoção.
+
+\subsection{Fila}
+O código da classe \texttt{FilaFlexivel} também é derivado da estrutura básica de lista encadeada e implementa uma fila, que segue a ordem FIFO (First In, First Out). Assim, o método \texttt{add} insere elementos no final da fila, percorrendo a lista até encontrar o último nó (onde o ponteiro \texttt{prox} do nó atual é \texttt{nullptr}), ao qual o novo nó é anexado. 
+
+O método \texttt{remove} remove elementos do início da fila, movendo o ponteiro da cabeça para o próximo nó e liberando a memória do nó removido. A classe também contém um construtor e um destrutor, assim como a classe \texttt{ListaFlexivel}, além dos métodos de busca e \texttt{mostrar}.
+
+A \texttt{main()} demonstra os métodos criados no código, e a fila é exibida antes e depois das operações de remoção para ilustrar todo o funcionamento e a busca do elemento 1 é feita antes e depois de sua remoção.
+
+
+
+\end{document}
