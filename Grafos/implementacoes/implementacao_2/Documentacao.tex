@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}  
+
+     
+\sloppy
+
+\title{Implementação 2 - TAD's}
+
+\author{Laura Costa\inst{1}, Lívia Xavier\inst{1}, Luca Gonzaga\inst{1}, Sophia Carrazza \inst{1} 
+}
+
+
+\address{Instituto de Ciências Exatas e Informática -- Pontifícia Universidade Católica de Minas Gerais
+  \email{}
+}
+
+\begin{document} 
+
+\maketitle
+\section{Informações Gerais}
+
+O presente trabalho busca descrever a implementação de um gerador de todos os subgrafos de um grafo completo com \textbf{n} vértices, em que \textbf{n} é informado pelo usuário. Além disto, informando o número de subgrafos gerados.  utilizando a linguagem C++. 
+\section{Estruturas Básicas}
+\begin{enumerate}
+    \item Criamos uma função chamada geradorDeSubgrafos que recebe um inteiro n, informando o número de vértices de um determinado grafo.
+    \item O número total de arestas em um grafo completo não direcionado. utilizamos em código a variável nArestas para represntar isso: 
+    \begin{enumerate}
+        \item nArestas =n * (n - 1) / 2;
+    \end{enumerate}
+    \item Também utilizamos um contador dos subgrafos para entregar o resultado da tarefa proposta.
+    \begin{enumerate}
+        \item nSubgrafos = 0
+    \end{enumerate}
+\item  Váriavel booleana subgrafoValido apenas para retornar se o subgrafo verificado existe ou não
+\end{enumerate}
+
+
+\section{O código}
+\begin{enumerate}
+    \item Criamos um vetor que armazena todas as arestas do grafo. 
+    \item  primeiro verificamos todas as combinações possíveis de vértices de um grafo completo a partir da fórmula: \textit{( \( 2^n - 1 \))}
+ele faz a combinação entre todos os vértices utilizando o número inserido pelo usuário e depois faz o mesmo com as arestas a partir da fórmula: \( 2^{nArestas} \). 
+
+    \item Certo, agora verificamos e selecionamos todos os "vértices ativos", ou seja, o código verifica quais vértices estão presentes no subgrafo atual. Isso é feito com uma operação de bitwise, onde cada bit de combinacaoVertices representa um vértice.
+    \item Após isso é feito uma conferência de todas as arestas para verificar se são válidas. Isso porque, se a aresta foi selecionada mas algum dos seus vértices nao ela é desconsiderada. Esse processo é feito a partir da verificação de ambas as extremidades da aresta, caso alguma delas não esteja no subgrafo atual retorna \textit{subgrafoValido} = false
+    \item E para finalizar se o subgrafo for válido ele é printado e contabilizado na váriavel \textit{nSubgrafos}.
+    \item Após toda a execução do programa o número total de subgrafos existente a partir de um grafo completo é printado na tela.
+\end{enumerate}
+
+
+\end{document}
