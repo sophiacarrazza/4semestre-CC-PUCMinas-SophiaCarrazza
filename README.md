@@ -19,6 +19,7 @@ Livros e repositórios usados durante os estudos para este semestre.
 
 - [Entendendo Algoritmos - Um Guia Ilustrado Para Programadores](https://www.amazon.com.br/Entendendo-Algoritmos-Ilustrado-Programadores-Curiosos/dp/8575225634)
 - [Algorithm Design - Jon Kleinberg, Eva Tardos](https://www.amazon.com.br/Algorithm-Design-Jon-Kleinberg/dp/0321295358)
+- [Artificial Intelligence: A Modern Approach](https://www.amazon.com/Artificial-Intelligence-A-Modern-Approach/dp/0134610997)
   
 ## 👨‍💻 Autora
 
