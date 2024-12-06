@@ -1,0 +1,24 @@
+Pitch:
+Dragon’s Tail é um jogo de aventura e estratégia inspirado na mitologia chinesa. Você controla QingLong, o Dragão Azul do Leste, que deve atravessar mapas gerados proceduralmente enquanto luta contra a névoa sombria que corrompeu as lendárias Bestas Cardinais. O jogador embarca em uma jornada para restaurar o equilíbrio do mundo com elementos de combate, estratégia e desafios crescentes.
+
+Perfil dos Jogadores:
+- O público-alvo de Dragon’s Tail é composto por adolescentes e jovens adultos (12-30 anos), familiarizados com jogos de estratégia e aventura.  
+- Idade e Características Socioeconômicas: Focado em um público que tem acesso a plataformas de jogos digitais.  
+- Preferências e Gostos: O público aprecia narrativas mitológicas, desafios estratégicos, e elementos visuais ricos em cultura. Jogadores que valorizam progressão e superação em níveis também são atraídos por este tipo de experiência. O design artístico inspirado na cultura chinesa adiciona apelo a entusiastas de história e mitologia.
+
+Level Design e Balanceamento:
+   - Os níveis de Dragon’s Tail foram projetados para proporcionar uma progressão gradual na dificuldade e oferecer uma experiência imersiva.  
+
+   - Baseados em tiles (grade), cada mapa é gerado proceduralmente com caminhos únicos e obstáculos que incentivam estratégia e exploração.  
+   - Elementos como muros (zonas seguras) e portais de imunidade estão estrategicamente posicionados para criar um equilíbrio entre desafio e proteção.  
+ 
+   - Os inimigos são gerados por algoritmos de IA que ajustam a variedade e intensidade conforme o jogador avança. Isso inclui atiradores, espinhos, e até chefões que exigem estratégias específicas.  
+
+   - Qing Long começa como uma figura isolada enfrentando ameaças crescentes. Ao longo da jornada, ele enfrenta e salva as Bestas Cardinais, culminando em um confronto final contra a origem da névoa.  
+  
+   - Power-ups como imunidade temporária e ataques especiais são introduzidos para ajudar na travessia.  
+   - Cada boss vencido libera habilidades adicionais ou fortalece o dragão, recompensando a persistência do jogador.  
+ 
+   - Elementos como animações fluidas do corpo do dragão, efeitos visuais ao derrotar inimigos, e mudanças dinâmicas no cenário ajudam na imersão. Sons de impacto e música adaptativa aumentam a emoção e a recompensa.  
+
+   - Existem múltiplas rotas de corredores, incentivando o jogador a explorar para descobrir atalhos enquanto gerencia riscos.  
